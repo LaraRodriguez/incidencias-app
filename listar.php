@@ -1,7 +1,32 @@
 <?php
 session_start();
 include 'head.php';
+if(isset($_REQUEST['listar'])){
+  $tipo = $_REQUEST['tipo'];
+  echo '<table> 
+  <tr> 
+    <th>id</th>
+    <th>tipo</th>
+    <th>fecha</th>
+    <th>lugar</th>
+  </tr>';
+  foreach($_SESSION['incidencias'] as $clave=>$valor){
+    if($valor[2]==$tipo){
+      echo '<tr> 
+      <td>'.$valor[0].'</td>
+      <td>'.$valor[1].'</td>
+      <td>'.$valor[2].'</td>
+      <td>'.$valor[3].'</td>
+      </tr>';
+    }
+  }
 
+  
+  
+  
+  echo '</table>';
+}
+else{
 print ' 
          <strong>SELECCIONA EL TIPO DE INCIDENCIA A LISTAR<BR><BR></strong>
                                      
@@ -35,30 +60,6 @@ print '
     </form>
         </div>';
 //var_dump($_SESSION['incidencias']);
-if(isset($_REQUEST['listar'])){
-  $tipo = $_REQUEST['tipo'];
-  echo '<table> 
-  <tr> 
-    <th>id</th>
-    <th>tipo</th>
-    <th>fecha</th>
-    <th>lugar</th>
-  </tr>';
-  foreach($_SESSION['incidencias'] as $clave=>$valor){
-    if($valor[2]==$tipo){
-      echo '<tr> 
-      <td>'.$valor[0].'</td>
-      <td>'.$valor[1].'</td>
-      <td>'.$valor[2].'</td>
-      <td>'.$valor[3].'</td>
-      </tr>';
-    }
-  }
-
-  
-  
-  
-  echo '</table>';
 }
 
 include 'pie.php';
