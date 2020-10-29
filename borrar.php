@@ -33,7 +33,7 @@ if(isset($_REQUEST['borrar'])){
         
     }
     
-    
+    echo '<br>';
     var_dump($_SESSION['incidencias']);
 }
  include 'pie.php';
