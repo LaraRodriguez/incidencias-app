@@ -20,7 +20,7 @@ include 'head.php';
         </table>
     </form>
         </div>';
-var_dump($_SESSION['incidencias']);
+//var_dump($_SESSION['incidencias']);
 if(isset($_REQUEST['borrar'])){
     $num = $_REQUEST['num_incidencia'];
     foreach($_SESSION['incidencias'] as $clave=>$valor){
@@ -34,7 +34,7 @@ if(isset($_REQUEST['borrar'])){
         
     }
     
-    echo '<br>';
-    var_dump($_SESSION['incidencias']);
+    //echo '<br>';
+    //var_dump($_SESSION['incidencias']);
 }
  include 'pie.php';
