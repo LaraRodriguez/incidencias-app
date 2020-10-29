@@ -27,7 +27,8 @@ if(isset($_REQUEST['borrar'])){
         if($valor[0]==$num){
             echo 'Eh, el numero funciona, es: '.$valor[0].'<br>';
             echo $valor[1].'<br>';
-            echo $valor[2];
+            echo $valor[2].'<br>';
+            echo 'Esto deberia ser el numero a borrar '.$clave;
             //unset($_SESSION['incidencias'][$clave]);
         }
             
