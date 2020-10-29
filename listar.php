@@ -5,10 +5,13 @@ if(isset($_REQUEST['listar'])){
   $tipo = $_REQUEST['tipo'];
   echo '<table> 
   <tr> 
-    <th>id</th>
-    <th>tipo</th>
-    <th>fecha</th>
-    <th>lugar</th>
+    <th>Numero</th>
+    <th>Urgencia</th>
+    <th>Tipo</th>
+    <th>Fecha</th>
+    <th>Lugar</th>
+    <th>IP</th>
+    <th>Descripcion</th>
   </tr>';
   foreach($_SESSION['incidencias'] as $clave=>$valor){
     if($valor[2]==$tipo){
@@ -17,6 +20,10 @@ if(isset($_REQUEST['listar'])){
       <td>'.$valor[1].'</td>
       <td>'.$valor[2].'</td>
       <td>'.$valor[3].'</td>
+      <td>'.$valor[4].'</td>
+      <td>'.$valor[5].'</td>
+      <td>'.$valor[6].'</td>
+      <td>'.$valor[7].'</td>
       </tr>';
     }
   }
