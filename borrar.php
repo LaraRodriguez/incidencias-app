@@ -24,9 +24,10 @@ var_dump($_SESSION['incidencias']);
 if(isset($_REQUEST['borrar'])){
     $num = $_REQUEST['num_incidencia'];
     foreach($_SESSION['incidencias'] as $clave=>$valor){
-        
         if($valor[0]==$num){
-            unset($_SESSION['incidencias'][$clave]);
+            echo $clave.'<br>';
+            echo $valor;
+            //unset($_SESSION['incidencias'][$clave]);
         }
             
         
