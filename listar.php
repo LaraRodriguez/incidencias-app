@@ -23,7 +23,6 @@ if(isset($_REQUEST['listar'])){
       <td>'.$valor[4].'</td>
       <td>'.$valor[5].'</td>
       <td>'.$valor[6].'</td>
-      <td>'.$valor[7].'</td>
       </tr>';
     }
   }
