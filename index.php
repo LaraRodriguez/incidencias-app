@@ -28,11 +28,11 @@ $sql="SELECT * FROM incidencia ORDER BY numero";
 		<tr>
 		<th>numero</th>
 		<th>urgencia</th>
-        <th>tipo</th>
-        <th>fecha</th>
-        <th>lugar</th>
-        <th>ip</th>
-        <th>descripcion</th>
+    <th>tipo</th>
+    <th>fecha</th>
+    <th>lugar</th>
+    <th>ip</th>
+    <th>descripcion</th>
 		</tr>';
   foreach($registros as $item)
   {
@@ -40,10 +40,10 @@ $sql="SELECT * FROM incidencia ORDER BY numero";
       //ó $item['nombre']
       echo '<td>'.$item[1] .'</td>'	;
       echo '<td>'.$item[2] .'</td>';
-      echo '<td>'.$item[2] .'</td>';
-      echo '<td>'.$item[2] .'</td>';
-      echo '<td>'.$item[2] .'</td>';
-      echo '<td>'.$item[2] .'</td></tr>';
+      echo '<td>'.$item[3] .'</td>';
+      echo '<td>'.$item[4] .'</td>';
+      echo '<td>'.$item[5] .'</td>';
+      echo '<td>'.$item[6] .'</td></tr>';
       //ó $item['descripcion']
 		
       
