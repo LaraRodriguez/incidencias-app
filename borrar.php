@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'head.php';
-require_once 'clases/Conexion.php';
                                              
  print' 
             <strong>INTRODUCE EL IDENTIFICADOR DE LA INCIDENCIA A BORRAR<BR><BR></strong>
@@ -23,25 +22,11 @@ require_once 'clases/Conexion.php';
         </div>';
 //var_dump($_SESSION['incidencias']);
 if(isset($_REQUEST['borrar'])){
-    $obj_conexion=new Conexion();
-    //$obj_conexion->saludar();
-    $con=$obj_conexion->conectar();
     $num = $_REQUEST['num_incidencia'];
-    try{
-    $sql1="DELETE FROM incidencia WHERE num_incidencia= ?";
-    $borrado= $con->prepare($sql1);
-    $borrado->execute(array($num));
-    
-    $filas_afectadas=$borrado->rowCount();
-    if($filas_afectadas>0){
-        echo '<script>alert("Borrado completado")</script>';
-    }
-    else{
-        echo '<script>alert("No se ha encontrado ningun registro con ese identificador")</script>';
-    }
-    }
-    catch(PDOException $e){
-        echo "Fallo la insercion".$e->getMessage();
+    foreach($_SESSION['incidencias'] as $clave=>$valor){
+        if($valor[0]==$num){
+            unset($_SESSION['incidencias'][$clave]);
+        }   
     }
     
     //echo '<br>';

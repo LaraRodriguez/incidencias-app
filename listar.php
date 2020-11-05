@@ -1,46 +1,36 @@
 <?php
 session_start();
 include 'head.php';
-require_once 'clases/Conexion.php';
 if(isset($_REQUEST['listar'])){
-  $obj_conexion=new Conexion();
-  //$obj_conexion->saludar();
-  $con=$obj_conexion->conectar();
-  try{
   $tipo = $_REQUEST['tipo'];
+  echo '<table> 
+  <tr> 
+    <th>Numero</th>
+    <th>Urgencia</th>
+    <th>Tipo</th>
+    <th>Fecha</th>
+    <th>Lugar</th>
+    <th>IP</th>
+    <th>Descripcion</th>
+  </tr>';
+  foreach($_SESSION['incidencias'] as $clave=>$valor){
+    if($valor[2]==$tipo){
+      echo '<tr> 
+      <td>'.$valor[0].'</td>
+      <td>'.$valor[1].'</td>
+      <td>'.$valor[2].'</td>
+      <td>'.$valor[3].'</td>
+      <td>'.$valor[4].'</td>
+      <td>'.$valor[5].'</td>
+      <td>'.$valor[6].'</td>
+      </tr>';
+    }
+  }
 
-  $sql="SELECT * FROM incidencia WHERE id_tipo=?";  
-  $consulta = $con->prepare($sql);
-  $consulta->execute(array($tipo));
-  $registros = $consulta->fetchAll();
-  print "<BR> <br>TODOS LOS REGISTROS<br>"; 
-  print'<table border="2">
-          <tr>
-          <th>numero</th>
-          <th>urgencia</th>
-          <th>fecha</th>
-          <th>lugar</th>
-          <th>ip</th>
-          <th>descripcion</th>
-          </tr>';
-  foreach($registros as $item)
-  {
-      echo '<tr><td>'.$item[0] .'</td>'	;	
-      //ó $item['nombre']
-      echo '<td>'.$item[1] .'</td>'	;
-      echo '<td>'.$item[2] .'</td>';
-      echo '<td>'.$item[4] .'</td>';
-      echo '<td>'.$item[5] .'</td>';
-      echo '<td>'.$item[6] .'</td></tr>';
-      //ó $item['descripcion']
-          
-      
-  }
-  print'</table>';
-  }
-  catch(PDOException $e){
-    echo "No hay registros".$e->getMessage();
-}
+  
+  
+  
+  echo '</table>';
 }
 else{
 print ' 
@@ -53,11 +43,13 @@ print '
                 <td align="right"><strong>Tipo :</strong></td><td>
                  <div align="left">
                     <select name="tipo">
-                    <option value="1">Pavimentacion</option>
-                    <option value="2">Fuga</option>
-                    <option value="3">Jardineria</option>
-                    <option value="4">Generico</option>
-                     <option value="5">Vandalismo</option>
+                     <option value="Basuras">Basuras</option>
+                      <option value="Aseo Urbano">Aseo Urbano</option>
+                      <option value="Mobiliario Urbano">Mobiliario Urbano</option>
+                      <option value="Vandalismo">Vandalismo</option>
+                       <option value="Transporte">Transporte</option>
+                      <option value="Señales y Semaforos">Señales y Semaforos</option>
+                      <option value="Mobiliario Urbano">Otros</option>
                     </select>
                 </div>
                </td>

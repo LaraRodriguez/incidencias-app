@@ -24,7 +24,7 @@ class Conexion
       try {             
           $base = new PDO($this->dns, $this->username, $this->password);
           $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-          //echo 'Se ha establecido Conexion ';
+          echo 'Se ha establecido Conexion ';
           return $base;
       }catch (PDOException $e) {
           print "Fallo la conexión" . $e->getMessage();
