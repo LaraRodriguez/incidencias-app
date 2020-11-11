@@ -29,3 +29,13 @@ FOREIGN KEY (Id_tipo)
  (1,1,5,"2020-11-04 10:37:43","Plaza mayor","193.12.56.25","Farola rota",0),
  (2,1,4,"2020-11-04 12:07:23","C/Pelicano 25","131.120.121.125","Contenedor basura roto",0),
  (3,1,5,"2020-11-04 00:07:23","C/Cigueña 5","145.10.11.15","Banco roto",0);
+
+CREATE TABLE  usuarios_login(
+        usuario varchar(30) PRIMARY KEY,
+        pass varchar(40)
+);
+INSERT INTO usuarios_login VALUE
+('juan', SHA1('juan')),
+('ana', SHA1('ana')),
+('profesor', SHA1('profesor')),
+('jose', SHA1('jose'))
